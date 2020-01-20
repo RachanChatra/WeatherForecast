@@ -7,7 +7,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import com.example.weatherforecast.R
 
-
+/**
+ * Base call back class that implements [BaseEventListener]
+ */
 open class BaseCallback(var context: Context?, var fragmentManager: FragmentManager?, var app: Application?):
     BaseEventListener {
     override fun changeStatusBarColor(colorId: Int) {

@@ -13,6 +13,7 @@ open class AndroidViewModel(app: Application): AndroidViewModel(app), Observable
     @Transient private var mCallbacks: PropertyChangeRegistry? = null
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
+        
         synchronized(this) {
             if (mCallbacks == null) {
                 mCallbacks = PropertyChangeRegistry()
