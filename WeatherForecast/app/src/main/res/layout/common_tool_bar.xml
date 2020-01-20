@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="baseViewModel"
+            type="com.example.weatherforecast.common.viewmodel.BaseViewModel" />
+    </data>
+    <Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_green">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tool_bar_height"
+            >
+
+            <ImageView
+                android:id="@+id/left_header_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@{baseViewModel.headerLeftImage}"
+                android:onClick="@{baseViewModel::onLeftViewClick}"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_20"
+                android:textColor="@android:color/white"
+                android:layout_toRightOf="@+id/left_header_view"
+                android:layout_centerVertical="true"
+                android:text="@{baseViewModel.headerTitle}"
+                android:layout_marginStart="@dimen/toolbar_title_margin_left"
+                />
+
+            <ImageView
+                android:id="@+id/right_header_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/dimen_5"
+                android:layout_marginEnd="@dimen/dimen_10"
+                android:src="@{baseViewModel.headerRightImage}"
+                android:onClick="@{baseViewModel::onRightViewClick}"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </Toolbar>
+</layout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="baseViewModel"
+            type="com.example.weatherforecast.common.viewmodel.BaseViewModel" />
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/common_tool_bar"
+            bind:baseViewModel="@{baseViewModel}"
+            />
+
+        <include
+            android:id="@+id/progress_bar"
+            layout="@layout/common_progress_bar"
+            bind:baseViewModel="@{baseViewModel}"/>
+        <FrameLayout
+            android:id="@+id/content_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+</layout>
