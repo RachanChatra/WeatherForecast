@@ -2,7 +2,7 @@
     <string name="app_name">WeatherForecast</string>
     <string name="enable_location_permission">Please enable location permission</string>
     <string name="ok">Ok</string>
-    <string name="please_check_your_network">Please check your network connection</string>
+    <string name="please_check_your_network">Please connect to WIFI</string>
     <string name="current_weather">Current Weather</string>
     <string name="sunrise_at">Sunrise at :</string>
     <string name="sunset_at">Sunset at :</string>

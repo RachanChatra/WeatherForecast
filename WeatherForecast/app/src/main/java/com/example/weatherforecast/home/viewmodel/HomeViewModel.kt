@@ -47,7 +47,8 @@ class HomeViewModel(app: Application) : BaseViewModel(app) {
      * Method to schedule Weather API via WorkManager
      */
     fun scheduleFetchWeatherAPI() {
-        if (NetworkUtil.isInternetAvailable(app).first){
+        val (isNetworkAvailable, networkType) = NetworkUtil.isInternetAvailable(app)
+        if (isNetworkAvailable && networkType == NetworkUtil.NetworkType.WIFI){
             showProgressView()
             val constraints = Constraints.Builder()
                 .setRequiredNetworkType(NetworkType.CONNECTED)
