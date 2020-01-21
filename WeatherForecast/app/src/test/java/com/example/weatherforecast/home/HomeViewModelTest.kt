@@ -7,6 +7,7 @@ import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import com.example.weatherforecast.MockResponse
 import com.example.weatherforecast.R
+import com.example.weatherforecast.common.network.NetworkUtil
 import com.example.weatherforecast.home.model.WeatherResponse
 import com.example.weatherforecast.home.util.HomeEventListener
 import com.example.weatherforecast.home.viewmodel.HomeViewModel
@@ -19,6 +20,7 @@ import org.mockito.ArgumentMatchers.any
 import org.mockito.ArgumentMatchers.anyInt
 import org.mockito.Mock
 import org.mockito.Mockito
+import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
 import org.powermock.api.mockito.PowerMockito
 import org.powermock.core.classloader.annotations.PrepareForTest
@@ -73,7 +75,9 @@ class HomeViewModelTest {
     }
 
     @Test
-    fun testScheduleWork(){
+    fun `should show a network error message if internet is not there`(){
+        Mockito.`when`(NetworkUtil.isInternetAvailable(context)).thenReturn(Pair(true, 1))
         viewModel.scheduleFetchWeatherAPI()
+        verify(listener)?.showNoInternet()
     }
 }
